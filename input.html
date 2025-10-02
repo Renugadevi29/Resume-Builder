@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder - Form</title>
+    <link rel="stylesheet" href="style.css"> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+    <div class="resume-page">
+        <h2 class="form-header">Enter Your Resume Details</h2>
+        <form id="resume-form">
+            
+            <fieldset>
+                <legend>Personal Information</legend>
+                <input type="text" id="name" placeholder="Full Name" required>
+                <input type="email" id="email" placeholder="Email Address" required>
+                <input type="tel" id="phone" placeholder="Phone Number (10 digits)" pattern="[0-9]{10}" required>
+                <input type="text" id="address" placeholder="Address" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Education & Skills</legend>
+                <input type="text" id="university" placeholder="University/College Name" required>
+                <input type="text" id="skillsInput" placeholder="Skills (comma separated)" required>
+                <input type="text" id="languages" placeholder="Other Languages Skilled In (comma separated)">
+            </fieldset>
+
+            <fieldset id="projects-section">
+                <legend>Projects</legend>
+                <button type="button" class="btn secondary-btn" onclick="addProjectInput()">Add Project</button>
+            </fieldset>
+
+            <fieldset>
+                <legend>Experience</legend>
+                <textarea id="workExperience" rows="4" placeholder="Work Experience Details"></textarea>
+            </fieldset>
+
+            <button type="submit" class="btn primary-btn large-btn">Generate Preview</button>
+        </form>
+    </div>
+
+    <div id="preview-section" class="resume-page" style="display: none; margin-top: 20px;">
+        <h2 class="form-header">Resume Preview</h2>
+        
+        <div id="resume-output"></div>
+
+        <button id="download-btn" class="btn primary-btn large-btn" onclick="downloadPDF()">Download PDF</button>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
